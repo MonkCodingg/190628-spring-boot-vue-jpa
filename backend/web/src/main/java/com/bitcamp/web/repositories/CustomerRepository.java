@@ -1,8 +1,9 @@
 package com.bitcamp.web.repositories;
 
+import java.util.Optional;
+
 import com.bitcamp.web.domain.CustomerDTO;
 import com.bitcamp.web.entities.Customer;
-
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,5 +12,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface CustomerRepository extends CrudRepository<Customer, Long> {  
-    public CustomerDTO findOne4(Customer a);  
+    public CustomerDTO findByCustomerId(String customerId); 
+    public CustomerDTO login(Customer customer);
 }

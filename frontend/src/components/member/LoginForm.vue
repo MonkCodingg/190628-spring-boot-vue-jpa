@@ -5,6 +5,7 @@
     <div class="form-group">
       <label for="email">Email:</label>
       <input type="email" class="form-control" id="email" placeholder="Enter email">
+      <input type="text" class="form-control" id="id" placeholder="Enter id">
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
@@ -13,6 +14,7 @@
     <div class="checkbox">
       <label><input type="checkbox"> Recommon me</label>
     </div>
+    <button class="btn btn-default" @click="summit">로그인</button>
     <button class="btn btn-default" @click="get">조 회</button>
     <button class="btn btn-default" @click="post">입 력</button>
     <button class="btn btn-default" @click="put">수 정</button>
@@ -29,7 +31,9 @@ import axios from 'axios'
 export default {
   data: ()=>{
     return {
-      context: 'http://localhost:9000'
+      context: 'http://localhost:9000',
+      id: '',
+      password: ''
     }
   },
   components: {
@@ -43,7 +47,8 @@ export default {
   //   }  
   // }
   // es6 방식
-  methods: {      
+  methods: {
+          
     get(){
       axios.get(`${this.context}/customers/count`)
       .then(res=>{
