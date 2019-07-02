@@ -8,3 +8,4 @@ package com.bitcamp.web.common.lambda;
 public interface IConsumer {
     public void accept(Object o); 
 }
+        

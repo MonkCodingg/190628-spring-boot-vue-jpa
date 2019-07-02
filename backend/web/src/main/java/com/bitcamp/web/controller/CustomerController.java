@@ -3,15 +3,14 @@ package com.bitcamp.web.controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
 import javax.persistence.EntityNotFoundException;
-
+import com.bitcamp.web.common.lambda.ISupplier;
 import com.bitcamp.web.domain.CustomerDTO;
 import com.bitcamp.web.entities.Customer;
+import com.bitcamp.web.repositories.CustomerRepository;
 import com.bitcamp.web.service.CustomerService;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -45,6 +44,8 @@ public class CustomerController {
     CustomerDTO customer;
     @Autowired
     ModelMapper modelMapper;
+    @Autowired
+    CustomerRepository repo;
 
     // @Bean
     // public ModelMapper modelMapper(){
@@ -142,5 +143,17 @@ public class CustomerController {
         Iterable<Customer> entities =customerService.saveAll(dtos);
         return null;
     } */
+
+    @PostMapping("/login")// post -> requestbody
+    public CustomerDTO login(@RequestBody CustomerDTO dto){
+        System.out.println("로그인 진입");
+        System.out.println("ID: "+dto.getCustomerId());
+        System.out.println("PW: "+dto.getPassword());
+        ISupplier fx = (()-> {
+            return repo.findByCustomerIdAndPassword(dto.getCustomerId(), 
+            dto.getPassword());
+        });
+        return (CustomerDTO)fx.get();
+    }
     
 }

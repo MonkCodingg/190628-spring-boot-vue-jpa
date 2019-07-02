@@ -54,7 +54,7 @@ public class Customer implements Serializable {
         +"CITY: %s\n"
         +"ADDRESS: %s\n"
         +"POSTALCODE: %s\n"
-        +"PHOTO: %s"
+        +"PHOTO: %s\n"
         , id, customerId, customerName, password, ssn, phone, city, address, postalcode, photo);
     }
 

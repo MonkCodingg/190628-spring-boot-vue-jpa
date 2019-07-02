@@ -49,7 +49,10 @@ public class CustomerService {
     public Iterable<Customer> saveAll(Iterable<Customer> entities){
         return customerRepository.saveAll(entities);
     }
-
+    public CustomerDTO findByPassword(String password){
+        
+        return null;
+    }
     /*jpa 
     public Long count(){
        return customerRepository.count(); 

@@ -3,18 +3,18 @@
   <Nav></Nav>
   <form>
     <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email">
-      <input type="text" class="form-control" id="id" placeholder="Enter id">
+      <label for="email">ID:</label>
+      
+      <input type="text" class="form-control" id="id" placeholder="Enter id" v-model="customerId">
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" v-model="password">
     </div>
     <div class="checkbox">
       <label><input type="checkbox"> Recommon me</label>
     </div>
-    <button class="btn btn-default" >로그인</button>
+    <button class="btn btn-default" @click="login">로그인</button>
     <button class="btn btn-default" @click="count">count</button>
     <button class="btn btn-default" @click="existsById">existsById</button>
     <button class="btn btn-default" @click="findAll">findAll</button>
@@ -131,6 +131,26 @@ export default {
           alert('ERROR')
       })
     },
+    login(){
+      alert("login 함수")
+      let data = {
+        customerId: this.customerId,
+        password: this.password
+      }
+      let headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'JWT fefege..'
+      }
+      axios.post(`${this.context}/login`, 
+                JSON.stringify(data),
+                {headers: headers})
+      .then(res=>{
+          alert(`SUCCESS2 : ${res.data.customerId}`)
+      })
+      .catch(e=>{
+          alert('ERROR')
+      })
+    }
     
     
   }

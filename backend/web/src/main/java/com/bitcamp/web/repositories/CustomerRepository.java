@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface CustomerRepository extends CrudRepository<Customer, Long> {//<엔터티, 롱> 
-   
-   
+    public CustomerDTO findByCustomerId(String customerId);
+    public CustomerDTO findByPassword(String password);
+	public Customer findByCustomerIdAndPassword(String customerId, String password);
 }
