@@ -153,7 +153,7 @@ public class CustomerController {
             return repo.findByCustomerIdAndPassword(dto.getCustomerId(), 
             dto.getPassword());
         });
-        return (CustomerDTO)fx.get();
+        return modelMapper.map(fx.get(), CustomerDTO.class);
     }
     
 }
