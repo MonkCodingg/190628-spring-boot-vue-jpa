@@ -4,6 +4,7 @@ import React from 'react'
      return(
          <div>
              hello my name is {props.name}
+             TEST
          </div>
      )
  } 
