@@ -1,17 +1,18 @@
-import React from 'react';
+import React, {Component} from 'react';
+import '../assets/css/App.css';
+import MyNav from '../components/MyNav';
 
-import './App.css';
-import MyFooter from './MyFooter';
-import Hello from './Hello';
-import MyNav from './MyNav';
-function App() {
-  return (
-    <div className="App">
-      <MyNav></MyNav>
-      <Hello name="wonjungho"></Hello>
-      <MyFooter></MyFooter>
-    </div>
-  );
+
+class App extends Component{
+  
+  render(){
+    return (
+      <div className="App">
+        <MyNav></MyNav>
+      </div>
+    );
+  }
+    
 }
 
 export default App;
