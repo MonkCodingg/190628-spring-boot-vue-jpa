@@ -28,7 +28,8 @@ import org.springframework.web.bind.annotation.RestController;
  * CustomerController
  */
 // @Controller soap방식
-@CrossOrigin(origins = "http://localhost:8080", maxAge = 3600)
+//@CrossOrigin(origins = "http://localhost:8080", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 @RestController // controller 자식 : 기능 추가될 수록 자식.
 @RequestMapping("/customers")
 public class CustomerController {
